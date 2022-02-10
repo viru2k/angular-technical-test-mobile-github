@@ -1,22 +1,22 @@
 // Angular
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 // Ngrx
-import { Actions, createEffect, ofType } from "@ngrx/effects";
+import { Actions, createEffect, ofType } from '@ngrx/effects';
 
 // Rxjs
-import { of } from "rxjs";
-import { map, catchError, exhaustMap, switchMap } from "rxjs/operators";
+import { of } from 'rxjs';
+import { map, catchError, exhaustMap, switchMap } from 'rxjs/operators';
 
 // Store
-import { PeliculasActions } from "../actions/action-types";
+import { PeliculasActions } from '../actions/action-types';
 
 // API
 
-import { Pelicula } from "../../models/Pelicula.model";
-import { PeliculaService } from "../../services/pelicula.service";
-import { Persona } from "src/app/models/Persona.model";
-import { updatePelicula, deletePelicula } from "../actions/peliculas.actions";
+import { Pelicula } from '../../models/Pelicula.model';
+import { PeliculaService } from '../../services/pelicula.service';
+import { Persona } from '../../models/Persona.model';
+import { updatePelicula, deletePelicula } from '../actions/peliculas.actions';
 
 @Injectable()
 export class PeliculasEffects {
