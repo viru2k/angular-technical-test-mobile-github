@@ -1,0 +1,7 @@
+{
+  "name": "angular-technical-test-mobile-github",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

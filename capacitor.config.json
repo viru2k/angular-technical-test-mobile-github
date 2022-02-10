@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "angular-technical-test-mobile-github",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
