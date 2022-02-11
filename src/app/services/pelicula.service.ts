@@ -1,20 +1,20 @@
 // Angular
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 // RxJs
-import { Observable, of } from "rxjs";
-import { take } from "rxjs/operators";
+import { Observable, of } from 'rxjs';
+import { take } from 'rxjs/operators';
 
 //Store
-import { BasePeliculasFacade } from "../store/peliculas.facade";
+import { BasePeliculasFacade } from '../store/peliculas/peliculas.facade';
 
 //Api
-import { Pelicula } from "../models/Pelicula.model";
-import { Persona } from "../models/Persona.model";
+import { Pelicula } from '../models/Pelicula.model';
+import { Persona } from '../models/Persona.model';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class PeliculaService {
   private url: string;
@@ -34,7 +34,7 @@ export class PeliculaService {
 
   // Not used for this feature -- only to  show how to call an http request
   getPeliculaById(id: number): Observable<Pelicula> {
-    return this.http.get<Pelicula>(this.url + "pelicula/id" + id);
+    return this.http.get<Pelicula>(this.url + 'pelicula/id' + id);
   }
 
   postPelicula(pelicula: Pelicula): Observable<Pelicula[]> {
@@ -85,7 +85,7 @@ export class PeliculaService {
     this.peliculasFacade.peliculaList$
       .pipe(take(1))
       .subscribe((peliculaList: Pelicula[]) => {
-        newArray.push(...peliculaList["castPrincipal"]);
+        newArray.push(...peliculaList['castPrincipal']);
         let itemIndex = peliculaList.findIndex(
           (item) => item.id == pelicula.id
         );
@@ -109,7 +109,7 @@ export class PeliculaService {
           (item) => item.id == pelicula.id
         );
         newArrayCast.push(persona);
-        newArrayPelicula[itemIndex]["castPrincipal"].push(...newArrayCast);
+        newArrayPelicula[itemIndex]['castPrincipal'].push(...newArrayCast);
       });
     return of(newArrayPelicula);
   }
@@ -128,7 +128,7 @@ export class PeliculaService {
           (item) => item.id == pelicula.id
         );
         newArrayCast.push(persona);
-        newArrayPelicula[itemIndex]["castPrincipal"].push(...newArrayCast);
+        newArrayPelicula[itemIndex]['castPrincipal'].push(...newArrayCast);
       });
     return of(newArrayPelicula);
   }
@@ -137,265 +137,265 @@ export class PeliculaService {
 // ARRAY OF ELEMENTS, JSON FILE NOT USED BECAUSE OF LACK OF TIME
 export const peliculasArray: any = [
   {
-    _id: "62013ca4b8b3da8e513b3098",
-    titulo: "DEMINIMUM",
-    fechaEstreno: "2020-08-08",
+    _id: '62013ca4b8b3da8e513b3098',
+    titulo: 'DEMINIMUM',
+    fechaEstreno: '2020-08-08',
     recaudacion: 97501821,
-    direccion: "Lesley Donovan",
-    genero: "Ciencia Ficción",
-    productora: "Columbia Picture",
+    direccion: 'Lesley Donovan',
+    genero: 'Ciencia Ficción',
+    productora: 'Columbia Picture',
     castPrincipal: [
       {
         id: 0,
-        apellidoNombre: "Molina Kline",
+        apellidoNombre: 'Molina Kline',
       },
       {
         id: 1,
-        apellidoNombre: "Graham Sanford",
+        apellidoNombre: 'Graham Sanford',
       },
       {
         id: 2,
-        apellidoNombre: "Woodward Dunlap",
+        apellidoNombre: 'Woodward Dunlap',
       },
     ],
   },
   {
-    _id: "62013ca40571fbcc6ea83eb3",
-    titulo: "CHILLIUM",
-    fechaEstreno: "2012-03-29",
+    _id: '62013ca40571fbcc6ea83eb3',
+    titulo: 'CHILLIUM',
+    fechaEstreno: '2012-03-29',
     recaudacion: 14992864,
-    direccion: "Margaret Austin",
-    genero: "Acción",
-    productora: "Columbia Picture",
+    direccion: 'Margaret Austin',
+    genero: 'Acción',
+    productora: 'Columbia Picture',
     castPrincipal: [
       {
         id: 0,
-        apellidoNombre: "Abby Harding",
+        apellidoNombre: 'Abby Harding',
       },
       {
         id: 1,
-        apellidoNombre: "Caldwell Maynard",
+        apellidoNombre: 'Caldwell Maynard',
       },
       {
         id: 2,
-        apellidoNombre: "Le Hansen",
+        apellidoNombre: 'Le Hansen',
       },
       {
         id: 3,
-        apellidoNombre: "Delores Goodwin",
+        apellidoNombre: 'Delores Goodwin',
       },
       {
         id: 4,
-        apellidoNombre: "Fitzpatrick Bridges",
+        apellidoNombre: 'Fitzpatrick Bridges',
       },
       {
         id: 5,
-        apellidoNombre: "Wall Brewer",
+        apellidoNombre: 'Wall Brewer',
       },
       {
         id: 6,
-        apellidoNombre: "Hatfield Valdez",
+        apellidoNombre: 'Hatfield Valdez',
       },
     ],
   },
   {
-    _id: "62013ca4ef775177ad34065a",
-    titulo: "CYCLONICA",
-    fechaEstreno: "2004-02-08",
+    _id: '62013ca4ef775177ad34065a',
+    titulo: 'CYCLONICA',
+    fechaEstreno: '2004-02-08',
     recaudacion: 72089713,
-    direccion: "Diana Logan",
-    genero: "Suspenso",
-    productora: "Warner Bros",
+    direccion: 'Diana Logan',
+    genero: 'Suspenso',
+    productora: 'Warner Bros',
     castPrincipal: [
       {
         id: 0,
-        apellidoNombre: "Bowers Pratt",
+        apellidoNombre: 'Bowers Pratt',
       },
       {
         id: 1,
-        apellidoNombre: "Rochelle Potts",
+        apellidoNombre: 'Rochelle Potts',
       },
       {
         id: 2,
-        apellidoNombre: "Walter Glass",
+        apellidoNombre: 'Walter Glass',
       },
     ],
   },
   {
-    _id: "62013ca43aefbc01d14faa4c",
-    titulo: "ACCUPHARM",
-    fechaEstreno: "2001-04-21",
+    _id: '62013ca43aefbc01d14faa4c',
+    titulo: 'ACCUPHARM',
+    fechaEstreno: '2001-04-21',
     recaudacion: 74234216,
-    direccion: "Odessa Walton",
-    genero: "Terror",
-    productora: "Paramount Pictures",
+    direccion: 'Odessa Walton',
+    genero: 'Terror',
+    productora: 'Paramount Pictures',
     castPrincipal: [
       {
         id: 0,
-        apellidoNombre: "Bird Butler",
+        apellidoNombre: 'Bird Butler',
       },
       {
         id: 1,
-        apellidoNombre: "Leslie Mullen",
+        apellidoNombre: 'Leslie Mullen',
       },
       {
         id: 2,
-        apellidoNombre: "Millicent Strickland",
+        apellidoNombre: 'Millicent Strickland',
       },
     ],
   },
   {
-    _id: "62013ca48733979c6d65a09b",
-    titulo: "GORGANIC",
-    fechaEstreno: "2006-07-29",
+    _id: '62013ca48733979c6d65a09b',
+    titulo: 'GORGANIC',
+    fechaEstreno: '2006-07-29',
     recaudacion: 35762427,
-    direccion: "Kendra Hardy",
-    genero: "Terror",
-    productora: "Warner Bros",
+    direccion: 'Kendra Hardy',
+    genero: 'Terror',
+    productora: 'Warner Bros',
     castPrincipal: [
       {
         id: 0,
-        apellidoNombre: "Jordan Bray",
+        apellidoNombre: 'Jordan Bray',
       },
       {
         id: 1,
-        apellidoNombre: "Rush Sears",
+        apellidoNombre: 'Rush Sears',
       },
       {
         id: 2,
-        apellidoNombre: "Josephine Coffey",
+        apellidoNombre: 'Josephine Coffey',
       },
       {
         id: 3,
-        apellidoNombre: "Everett Moore",
+        apellidoNombre: 'Everett Moore',
       },
     ],
   },
   {
-    _id: "62013ca4bb9681d8fc340740",
-    titulo: "ZYTRAX",
-    fechaEstreno: "2002-03-29",
+    _id: '62013ca4bb9681d8fc340740',
+    titulo: 'ZYTRAX',
+    fechaEstreno: '2002-03-29',
     recaudacion: 9509257,
-    direccion: "Newman Dunn",
-    genero: "Ciencia Ficción",
-    productora: "Paramount Pictures",
+    direccion: 'Newman Dunn',
+    genero: 'Ciencia Ficción',
+    productora: 'Paramount Pictures',
     castPrincipal: [
       {
         id: 0,
-        apellidoNombre: "Butler Mcfarland",
+        apellidoNombre: 'Butler Mcfarland',
       },
       {
         id: 1,
-        apellidoNombre: "Goff Romero",
+        apellidoNombre: 'Goff Romero',
       },
       {
         id: 2,
-        apellidoNombre: "Wilcox Gordon",
+        apellidoNombre: 'Wilcox Gordon',
       },
       {
         id: 3,
-        apellidoNombre: "Bernadette Acevedo",
+        apellidoNombre: 'Bernadette Acevedo',
       },
       {
         id: 4,
-        apellidoNombre: "Melva Lowe",
+        apellidoNombre: 'Melva Lowe',
       },
     ],
   },
   {
-    _id: "62013ca426605e2f052331e6",
-    titulo: "ZOSIS",
-    fechaEstreno: "2007-06-23",
+    _id: '62013ca426605e2f052331e6',
+    titulo: 'ZOSIS',
+    fechaEstreno: '2007-06-23',
     recaudacion: 38738399,
-    direccion: "Hardin Newman",
-    genero: "Suspenso",
-    productora: "Warner Bros",
+    direccion: 'Hardin Newman',
+    genero: 'Suspenso',
+    productora: 'Warner Bros',
     castPrincipal: [
       {
         id: 0,
-        apellidoNombre: "Alison Malone",
+        apellidoNombre: 'Alison Malone',
       },
       {
         id: 1,
-        apellidoNombre: "Hays Huber",
+        apellidoNombre: 'Hays Huber',
       },
       {
         id: 2,
-        apellidoNombre: "Roseann Reyes",
+        apellidoNombre: 'Roseann Reyes',
       },
       {
         id: 3,
-        apellidoNombre: "Hawkins Gentry",
+        apellidoNombre: 'Hawkins Gentry',
       },
       {
         id: 4,
-        apellidoNombre: "Lowery Todd",
+        apellidoNombre: 'Lowery Todd',
       },
       {
         id: 5,
-        apellidoNombre: "Estella Hester",
+        apellidoNombre: 'Estella Hester',
       },
     ],
   },
   {
-    _id: "62013ca4cbe15620cf5b597d",
-    titulo: "ZAPHIRE",
-    fechaEstreno: "2006-06-13",
+    _id: '62013ca4cbe15620cf5b597d',
+    titulo: 'ZAPHIRE',
+    fechaEstreno: '2006-06-13',
     recaudacion: 16839631,
-    direccion: "Vilma Fernandez",
-    genero: "Ciencia Ficción",
-    productora: "Warner Bros",
+    direccion: 'Vilma Fernandez',
+    genero: 'Ciencia Ficción',
+    productora: 'Warner Bros',
     castPrincipal: [
       {
         id: 0,
-        apellidoNombre: "Spears Rowland",
+        apellidoNombre: 'Spears Rowland',
       },
       {
         id: 1,
-        apellidoNombre: "Dana Adams",
+        apellidoNombre: 'Dana Adams',
       },
       {
         id: 2,
-        apellidoNombre: "Gwen Ayers",
+        apellidoNombre: 'Gwen Ayers',
       },
     ],
   },
   {
-    _id: "62013ca4a030b18cad54a45c",
-    titulo: "ECRAZE",
-    fechaEstreno: "2012-02-10",
+    _id: '62013ca4a030b18cad54a45c',
+    titulo: 'ECRAZE',
+    fechaEstreno: '2012-02-10',
     recaudacion: 16036493,
-    direccion: "Holmes Love",
-    genero: "Terror",
-    productora: "Paramount Pictures",
+    direccion: 'Holmes Love',
+    genero: 'Terror',
+    productora: 'Paramount Pictures',
     castPrincipal: [
       {
         id: 0,
-        apellidoNombre: "Langley Hendricks",
+        apellidoNombre: 'Langley Hendricks',
       },
       {
         id: 1,
-        apellidoNombre: "Kaye Buckner",
+        apellidoNombre: 'Kaye Buckner',
       },
       {
         id: 2,
-        apellidoNombre: "Pennington Mckenzie",
+        apellidoNombre: 'Pennington Mckenzie',
       },
       {
         id: 3,
-        apellidoNombre: "Kerri Lane",
+        apellidoNombre: 'Kerri Lane',
       },
       {
         id: 4,
-        apellidoNombre: "Nancy Bowers",
+        apellidoNombre: 'Nancy Bowers',
       },
       {
         id: 5,
-        apellidoNombre: "Lacey Peck",
+        apellidoNombre: 'Lacey Peck',
       },
       {
         id: 6,
-        apellidoNombre: "Maryann Shields",
+        apellidoNombre: 'Maryann Shields',
       },
     ],
   },
@@ -404,46 +404,46 @@ export const peliculasArray: any = [
 export const personaArray: any = [
   {
     id: 0,
-    apellidoNombre: "Elise Miranda",
+    apellidoNombre: 'Elise Miranda',
   },
   {
     id: 1,
-    apellidoNombre: "Skinner Campos",
+    apellidoNombre: 'Skinner Campos',
   },
   {
     id: 2,
-    apellidoNombre: "Joyce Barlow",
+    apellidoNombre: 'Joyce Barlow',
   },
   {
     id: 3,
-    apellidoNombre: "Juliana Frost",
+    apellidoNombre: 'Juliana Frost',
   },
   {
     id: 4,
-    apellidoNombre: "Ellen Brennan",
+    apellidoNombre: 'Ellen Brennan',
   },
   {
     id: 5,
-    apellidoNombre: "Salinas Todd",
+    apellidoNombre: 'Salinas Todd',
   },
   {
     id: 6,
-    apellidoNombre: "Mamie Alvarez",
+    apellidoNombre: 'Mamie Alvarez',
   },
   {
     id: 7,
-    apellidoNombre: "Summers Harding",
+    apellidoNombre: 'Summers Harding',
   },
   {
     id: 8,
-    apellidoNombre: "Karin Combs",
+    apellidoNombre: 'Karin Combs',
   },
   {
     id: 9,
-    apellidoNombre: "Petersen Wilcox",
+    apellidoNombre: 'Petersen Wilcox',
   },
   {
     id: 10,
-    apellidoNombre: "Carmela Head",
+    apellidoNombre: 'Carmela Head',
   },
 ];
