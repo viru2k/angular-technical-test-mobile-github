@@ -8,7 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { PeliculasStoreModule } from './store/peliculas.module';
+import { PeliculasStoreModule } from './store/peliculas/peliculas.module';
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,10 +16,13 @@ import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
+// Components
 import { AppComponent } from './app.component';
+import { LoaderComponent } from './shared/components/loader/loader.component';
+import { SharedStoreModule } from './store/shared/shared.module';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoaderComponent],
   entryComponents: [],
   imports: [
     FormsModule,
@@ -31,6 +34,9 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
 
     //Store
+    SharedStoreModule,
+    PeliculasStoreModule,
+    PeliculasStoreModule,
     PeliculasStoreModule,
     /** This comment is for information only
      *  PeliculasStoreModule handle  the store related for peliculas

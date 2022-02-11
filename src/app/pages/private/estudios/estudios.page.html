@@ -1,0 +1,24 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="main"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Estudios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content
+  *ngIf="peliculasFacade.peliculaList$ | async as peliculas; else noResultsFound"
+>
+  <ion-list *ngFor="let item of peliculas">
+    <ion-item> {{item.titulo}} </ion-item>
+  </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+<ng-template #noResultsFound>
+  <ion-content> <ion-label>Sin contenido</ion-label> </ion-content>
+</ng-template>

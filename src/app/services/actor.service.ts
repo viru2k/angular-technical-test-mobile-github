@@ -7,71 +7,68 @@ import { Observable, of } from 'rxjs';
 import { take } from 'rxjs/operators';
 
 //Store
-import { BasePeliculasFacade } from '../store/peliculas/peliculas.facade';
+import { BaseActoresFacade } from '../store/actores/actores.facade';
 
 //Api
-import { Pelicula } from '../models/Pelicula.model';
-import { Persona } from '../models/Persona.model';
+import { Actor } from '../models/Actor.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class PeliculaService {
+export class ActorService {
   private url: string;
 
   constructor(
     public http: HttpClient,
-    private peliculasFacade: BasePeliculasFacade
+    private actoresFacade: BaseActoresFacade
   ) {}
 
-  getPeliculas(): Observable<Pelicula[]> {
-    return of(peliculasArray);
+  getActors(): Observable<Actor[]> {
+    return of(actorsArray);
   }
 
-  getActores(): Observable<Persona[]> {
+  getActores(): Observable<Actor[]> {
     return of(personaArray);
   }
 
   // Not used for this feature -- only to  show how to call an http request
-  getPeliculaById(id: number): Observable<Pelicula> {
-    return this.http.get<Pelicula>(this.url + 'pelicula/id' + id);
+  getActorById(id: number): Observable<Actor> {
+    return this.http.get<Actor>(this.url + 'actor/id' + id);
   }
 
-  postPelicula(pelicula: Pelicula): Observable<Pelicula[]> {
-    let newArray: Pelicula[] = [];
-    this.peliculasFacade.peliculaList$
+  postActor(actor: Actor): Observable<Actor[]> {
+    let newArray: Actor[] = [];
+    this.actoresFacade.actorList$
       .pipe(take(1))
-      .subscribe((peliculaList: Pelicula[]) => {
-        newArray.push(...peliculaList, pelicula);
+      .subscribe((actorList: Actor[]) => {
+        newArray.push(...actorList, actor);
       });
     return of(newArray);
   }
 
-  putPelicula(pelicula: Pelicula): Observable<Pelicula[]> {
-    let newArray: Pelicula[] = [];
-    this.peliculasFacade.peliculaList$
+  putActor(actor: Actor): Observable<Actor[]> {
+    let newArray: Actor[] = [];
+    this.actoresFacade.actorList$
       .pipe(take(1))
-      .subscribe((peliculaList: Pelicula[]) => {
-        newArray.push(...peliculaList);
-        let itemIndex = peliculaList.findIndex(
-          (item) => item.id == pelicula.id
-        );
-        newArray[itemIndex] = pelicula;
+      .subscribe((actorList: Actor[]) => {
+        newArray.push(...actorList);
+        let itemIndex = actorList.findIndex((item) => item.id == actor.id);
+        newArray[itemIndex] = actor;
       });
 
     return of(newArray);
   }
 
-  deletePelicula(pelicula: Pelicula): Observable<Pelicula[]> {
-    let newArray: Pelicula[] = [];
+  deleteActor(actor: Actor): Observable<Actor[]> {
+    let newArray: Actor[] = [];
     let itemIndex = 0;
-    this.peliculasFacade.peliculaList$
+    this.actoresFacade.actorList$
       .pipe(take(1))
-      .subscribe((peliculaList: Pelicula[]) => {
-        newArray.push(...peliculaList);
-        itemIndex = peliculaList.findIndex((item) => item.id == pelicula.id);
+      .subscribe((actorList: Actor[]) => {
+        newArray.push(...actorList);
+        itemIndex = actorList.findIndex((item) => item.id == actor.id);
 
-        newArray[itemIndex] = pelicula;
+        newArray[itemIndex] = actor;
       });
 
     return of([
@@ -80,62 +77,50 @@ export class PeliculaService {
     ]);
   }
 
-  getCast(pelicula: Pelicula): Observable<Persona[]> {
-    let newArray: Persona[] = [];
-    this.peliculasFacade.peliculaList$
+  getCast(actor: Actor): Observable<Actor[]> {
+    let newArray: Actor[] = [];
+    this.actoresFacade.actorList$
       .pipe(take(1))
-      .subscribe((peliculaList: Pelicula[]) => {
-        newArray.push(...peliculaList['castPrincipal']);
-        let itemIndex = peliculaList.findIndex(
-          (item) => item.id == pelicula.id
-        );
+      .subscribe((actorList: Actor[]) => {
+        newArray.push(...actorList['castPrincipal']);
+        let itemIndex = actorList.findIndex((item) => item.id == actor.id);
       });
 
     return of(newArray);
   }
 
   // PENDING TO IMPLEMENT
-  postSelectedCast(
-    persona: Persona,
-    pelicula: Pelicula
-  ): Observable<Pelicula[]> {
-    let newArrayPelicula: Pelicula[] = [];
-    let newArrayCast: Persona[] = [];
-    this.peliculasFacade.peliculaList$
+  postSelectedCast(persona: Actor, actor: Actor): Observable<Actor[]> {
+    let newArrayActor: Actor[] = [];
+    let newArrayCast: Actor[] = [];
+    this.actoresFacade.actorList$
       .pipe(take(1))
-      .subscribe((peliculaList: Pelicula[]) => {
-        newArrayPelicula.push(...peliculaList);
-        let itemIndex = newArrayPelicula.findIndex(
-          (item) => item.id == pelicula.id
-        );
+      .subscribe((actorList: Actor[]) => {
+        newArrayActor.push(...actorList);
+        let itemIndex = newArrayActor.findIndex((item) => item.id == actor.id);
         newArrayCast.push(persona);
-        newArrayPelicula[itemIndex]['castPrincipal'].push(...newArrayCast);
+        newArrayActor[itemIndex]['castPrincipal'].push(...newArrayCast);
       });
-    return of(newArrayPelicula);
+    return of(newArrayActor);
   }
 
-  deleteSelectedCast(
-    persona: Persona,
-    pelicula: Pelicula
-  ): Observable<Pelicula[]> {
-    let newArrayPelicula: Pelicula[] = [];
-    let newArrayCast: Persona[] = [];
-    this.peliculasFacade.peliculaList$
+  deleteSelectedCast(persona: Actor, actor: Actor): Observable<Actor[]> {
+    let newArrayActor: Actor[] = [];
+    let newArrayCast: Actor[] = [];
+    this.actoresFacade.actorList$
       .pipe(take(1))
-      .subscribe((peliculaList: Pelicula[]) => {
-        newArrayPelicula.push(...peliculaList);
-        let itemIndex = newArrayPelicula.findIndex(
-          (item) => item.id == pelicula.id
-        );
+      .subscribe((actorList: Actor[]) => {
+        newArrayActor.push(...actorList);
+        let itemIndex = newArrayActor.findIndex((item) => item.id == actor.id);
         newArrayCast.push(persona);
-        newArrayPelicula[itemIndex]['castPrincipal'].push(...newArrayCast);
+        newArrayActor[itemIndex]['castPrincipal'].push(...newArrayCast);
       });
-    return of(newArrayPelicula);
+    return of(newArrayActor);
   }
 }
 
 // ARRAY OF ELEMENTS, JSON FILE NOT USED BECAUSE OF LACK OF TIME
-export const peliculasArray: any = [
+export const actorsArray: any = [
   {
     _id: '62013ca4b8b3da8e513b3098',
     titulo: 'DEMINIMUM',
