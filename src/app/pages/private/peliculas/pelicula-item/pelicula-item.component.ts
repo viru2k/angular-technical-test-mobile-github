@@ -7,6 +7,7 @@ import { BaseMoviesFacade } from '../../../../store/peliculas/movie.facade';
 
 // Api
 import { Movie } from '../../../../models/Movie.model';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-pelicula-item',
@@ -14,7 +15,10 @@ import { Movie } from '../../../../models/Movie.model';
 })
 export class PeliculaItemComponent implements OnInit, OnDestroy {
   @Input() itemPelicula: Movie;
-  constructor(public peliculasFacade: BaseMoviesFacade) {}
+  constructor(
+    public peliculasFacade: BaseMoviesFacade,
+    public navCtrl: NavController
+  ) {}
 
   ngOnInit(): void {}
 
@@ -22,6 +26,12 @@ export class PeliculaItemComponent implements OnInit, OnDestroy {
 
   editElement(selectedIitem: Movie): void {
     this.peliculasFacade.updateCurrentMovie(selectedIitem);
+    /*     this.navCtrl.navigateForward('/pelicula-details', {
+      queryParams: { order: 'popular' },
+    }); */
+    this.navCtrl.navigateForward('pelicula-details', {
+      queryParams: { order: 'popular' },
+    });
   }
 
   deleteElement(selectedIitem: Movie): void {

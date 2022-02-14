@@ -1,5 +1,6 @@
 // Ngrx
 import { createReducer, on, Action } from '@ngrx/store';
+import { RouterReducerState } from '@ngrx/router-store';
 
 // Store
 import { MovieActions } from '../actions/action-types';

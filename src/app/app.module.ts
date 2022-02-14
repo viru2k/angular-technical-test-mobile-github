@@ -8,6 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { RouterSerializer } from './store/shared/router-serializer';
 import { ActorsStoreModule } from './store/actores/actores.module';
 import { MoviesStoreModule } from './store/peliculas/movie.module';
 import { CompaniesStoreModule } from './store/estudios/company.module';
@@ -50,6 +52,9 @@ import { SharedStoreModule } from './store/shared/shared.module';
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
       maxAge: 30,
+    }),
+    StoreRouterConnectingModule.forRoot({
+      serializer: RouterSerializer,
     }),
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

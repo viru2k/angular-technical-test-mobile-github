@@ -27,6 +27,14 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'pelicula-details',
+    loadChildren: () =>
+      import(
+        './pages/private/peliculas/pelicula-details/pelicula-details.module'
+      ).then((m) => m.PeliculaDetailsPageModule),
+  },
+
+  {
     path: 'estudios',
     loadChildren: () =>
       import('./pages/private/estudios/company.module').then(
