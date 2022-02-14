@@ -29,8 +29,8 @@ const routes: Routes = [
   {
     path: 'estudios',
     loadChildren: () =>
-      import('./pages/private/estudios/estudios.module').then(
-        (m) => m.EstudiosPageModule
+      import('./pages/private/estudios/company.module').then(
+        (m) => m.CompanyPageModule
       ),
   },
 ];

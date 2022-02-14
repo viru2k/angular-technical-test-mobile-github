@@ -1,2 +1,2 @@
-import * as EstudiosActions from './estudios.actions';
-export { EstudiosActions };
+import * as CompanyActions from './company.actions';
+export { CompanyActions };

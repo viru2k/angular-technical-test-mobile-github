@@ -6,7 +6,6 @@ import { ActoresActions } from '../actions/action-types';
 
 // API
 import { Actor } from '../../../models/Actor.model';
-import { Persona } from '../../../models/Persona.model';
 
 // DATA VIEW STATE
 export interface ActoresDataState {
@@ -22,7 +21,7 @@ const ActoresReducer = createReducer(
   on(ActoresActions.getActoresSuccess, (state, action) => {
     return {
       ...state,
-      peliculas: action.payload,
+      Movies: action.payload,
     };
   }),
 

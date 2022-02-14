@@ -18,4 +18,4 @@ import { ActoresReducers } from './reducers/reducer-map';
   ],
   providers: [],
 })
-export class ActoresStoreModule {}
+export class ActorsStoreModule {}
