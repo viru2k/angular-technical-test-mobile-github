@@ -16,7 +16,6 @@ import { ActoresFormState } from './reducers/actores.reducers';
 
 import * as fromSelectors from './selectors/actores.selectors';
 import { Actor } from '../../models/Actor.model';
-import { Persona } from '../../models/Persona.model';
 
 /**
  *  This file is created to do as is name said, a nexus from the store and view

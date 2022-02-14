@@ -8,17 +8,25 @@
 </ion-header>
 
 <ion-content
-  *ngIf="peliculasFacade.peliculaList$ | async as peliculas; else noResultsFound"
+  *ngIf="actoresFacade.actorList$ | async as actores; else noResultsFound"
 >
-  <ion-list *ngFor="let item of peliculas">
-    <ion-item> {{item.titulo}} </ion-item>
+  <ion-list *ngFor="let item of actores">
+    <ion-card>
+      <img src="{{ item.img }}" />
+      <ion-item> {{item.last_name}} {{item.first_name}} </ion-item>
+      <ion-item> <ion-badge>{{item.gender}}</ion-badge> </ion-item>
+
+      <ion-item> Ciudad de nacimiento: {{item.bornCity}} </ion-item>
+      <ion-item> Nacio el: {{item.birthdate}} </ion-item>
+    </ion-card>
   </ion-list>
+</ion-content>
+<ng-template #noResultsFound>
+  <ion-content> <ion-label>Sin contenido</ion-label> </ion-content>
+
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button>
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-</ion-content>
-<ng-template #noResultsFound>
-  <ion-content> <ion-label>Sin contenido</ion-label> </ion-content>
 </ng-template>

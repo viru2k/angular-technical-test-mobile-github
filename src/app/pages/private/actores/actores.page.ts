@@ -1,15 +1,26 @@
-import { BasePeliculasFacade } from './../../../store/peliculas/peliculas.facade';
-import { Component, OnInit } from '@angular/core';
+import { BaseActoresFacade } from '../../../store/actores/actores.facade';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-actores',
   templateUrl: './actores.page.html',
   styleUrls: ['./actores.page.scss'],
 })
-export class ActoresPage implements OnInit {
-  constructor(private peliculasFacade: BasePeliculasFacade) {}
+export class ActoresPage implements OnInit, OnDestroy {
+  constructor(private actoresFacade: BaseActoresFacade) {}
 
   ngOnInit() {
-    this.peliculasFacade.loadViewData();
+    this.actoresFacade.loadViewData();
+  }
+
+  ngOnDestroy() {}
+
+  private clearStore(): void {
+    this.actoresFacade.clearActoresForm();
+    this.actoresFacade.clearActores();
+  }
+
+  ionViewWillLeave() {
+    this.clearStore();
   }
 }

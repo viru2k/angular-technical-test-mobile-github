@@ -7,15 +7,15 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
 // Store
-import { PeliculasEffects } from './effects/peliculas.effects';
-import { PeliculasReducers } from './reducers/reducer-map';
+import { CompaniesEffects } from './effects/company.effects';
+import { CompanyReducers } from './reducers/reducer-map';
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    StoreModule.forFeature('peliculas', PeliculasReducers),
-    EffectsModule.forFeature([PeliculasEffects]),
+    StoreModule.forFeature('company', CompanyReducers),
+    EffectsModule.forFeature([CompaniesEffects]),
   ],
   providers: [],
 })
-export class PeliculasStoreModule {}
+export class CompaniesStoreModule {}

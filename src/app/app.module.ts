@@ -8,7 +8,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { PeliculasStoreModule } from './store/peliculas/peliculas.module';
+import { ActorsStoreModule } from './store/actores/actores.module';
+import { MoviesStoreModule } from './store/peliculas/movie.module';
+import { CompaniesStoreModule } from './store/estudios/company.module';
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -35,11 +37,11 @@ import { SharedStoreModule } from './store/shared/shared.module';
 
     //Store
     SharedStoreModule,
-    PeliculasStoreModule,
-    PeliculasStoreModule,
-    PeliculasStoreModule,
+    MoviesStoreModule,
+    CompaniesStoreModule,
+    ActorsStoreModule,
     /** This comment is for information only
-     *  PeliculasStoreModule handle  the store related for peliculas
+     *  PeliculasStoreModule handle  the store related for Movies
      *  removing  not necessary imports and splitting ngrx in small pieces
      *  binded by this module and a file  called *.facade.ts which is the main
      *  in every feature and is who is as a bridge between view and store

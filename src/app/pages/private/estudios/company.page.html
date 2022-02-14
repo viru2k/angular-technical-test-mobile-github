@@ -3,15 +3,21 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="main"></ion-back-button>
     </ion-buttons>
-    <ion-title>Estudios</ion-title>
+    <ion-title>Companies</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content
-  *ngIf="peliculasFacade.peliculaList$ | async as peliculas; else noResultsFound"
+  *ngIf="companyFacade.companyList$ | async as companies; else noResultsFound"
 >
-  <ion-list *ngFor="let item of peliculas">
-    <ion-item> {{item.titulo}} </ion-item>
+  <ion-list *ngFor="let item of companies">
+    <ion-item>
+      <ion-label> Company {{item.name}} </ion-label>
+      <ion-label> Country {{item.country}} </ion-label>
+
+      <ion-label> Created Year {{item.createYear}} </ion-label>
+      <ion-label> Employees {{item.employees}} </ion-label>
+    </ion-item>
   </ion-list>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button>

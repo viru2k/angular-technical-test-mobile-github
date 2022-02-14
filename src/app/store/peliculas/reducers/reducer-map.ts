@@ -1,19 +1,19 @@
 // NgRX
-import { ActionReducerMap } from "@ngrx/store";
+import { ActionReducerMap } from '@ngrx/store';
 
 // Reducers
 import {
-  PeliculasDataState,
-  PeliculasFormState,
-  PeliculasReducerFunction,
-  PeliculasFormReducerFunction,
-} from "./peliculas.reducers";
+  MoviesDataState,
+  MoviesFormState,
+  MoviesReducerFunction,
+  MoviesFormReducerFunction,
+} from './Movie.reducers';
 
-export interface PeliculasState {
-  PeliculasDataState: PeliculasDataState;
-  PeliculasFormState: PeliculasFormState;
+export interface MovieState {
+  MoviesDataState: MoviesDataState;
+  MoviesFormState: MoviesFormState;
 }
-export const PeliculasReducers: ActionReducerMap<PeliculasState> = {
-  PeliculasDataState: PeliculasReducerFunction,
-  PeliculasFormState: PeliculasFormReducerFunction,
+export const MovieReducers: ActionReducerMap<MovieState> = {
+  MoviesDataState: MoviesReducerFunction,
+  MoviesFormState: MoviesFormReducerFunction,
 };

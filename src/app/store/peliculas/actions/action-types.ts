@@ -1,2 +1,2 @@
-import * as PeliculasActions from "./peliculas.actions";
-export { PeliculasActions };
+import * as MovieActions from './Movie.actions';
+export { MovieActions };

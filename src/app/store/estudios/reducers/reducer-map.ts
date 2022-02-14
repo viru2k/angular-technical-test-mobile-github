@@ -3,17 +3,17 @@ import { ActionReducerMap } from '@ngrx/store';
 
 // Reducers
 import {
-  EstudiosDataState,
-  EstudiosFormState,
-  EstudiosReducerFunction,
-  EstudiosFormReducerFunction,
-} from './estudios.reducers';
+  CompanyDataState,
+  CompanyFormState,
+  CompanyReducerFunction,
+  CompanyFormReducerFunction,
+} from './company.reducers';
 
-export interface EstudiosState {
-  EstudiosDataState: EstudiosDataState;
-  EstudiosFormState: EstudiosFormState;
+export interface CompanyState {
+  CompanyDataState: CompanyDataState;
+  CompanyFormState: CompanyFormState;
 }
-export const EstudiosReducers: ActionReducerMap<EstudiosState> = {
-  EstudiosDataState: EstudiosReducerFunction,
-  EstudiosFormState: EstudiosFormReducerFunction,
+export const CompanyReducers: ActionReducerMap<CompanyState> = {
+  CompanyDataState: CompanyReducerFunction,
+  CompanyFormState: CompanyFormReducerFunction,
 };

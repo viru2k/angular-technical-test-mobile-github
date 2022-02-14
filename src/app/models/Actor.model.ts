@@ -1,25 +1,33 @@
 import { Model } from './Model';
-import { Persona } from './Persona.model';
 
 export declare class Actor extends Model {
   id: string;
-  titulo: string;
-  fechaEstreno: string;
-  recaudacion: number;
-  direccion: string;
-  genero: string;
-  productora: string;
-  castPrincipal: Persona[];
+  first_name: string;
+  last_name: string;
+  gender: GenderEnums.Gender;
+  bornCity: string;
+  birthdate: string;
+  img: string;
+  rating: number;
+  movies: number[];
   constructor(attrs?: Attrs);
 }
 
 export interface Attrs {
-  id: number;
-  titulo: string;
-  fechaEstreno: string;
-  recaudacion: number;
-  direccion: string;
-  genero: string;
-  productora?: string;
-  castPrincipal?: Persona[];
+  id?: number;
+  first_name?: string;
+  last_name?: string;
+  gender?: GenderEnums.Gender;
+  bornCity?: string;
+  birthdate?: string;
+  img?: string;
+  rating?: number;
+  movies?: number[];
+}
+
+export declare namespace GenderEnums {
+  enum Gender {
+    'Male',
+    'Female',
+  }
 }

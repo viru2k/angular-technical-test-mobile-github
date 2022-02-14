@@ -3,28 +3,28 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 // Store
-import { BasePeliculasFacade } from '../../../../store/peliculas/peliculas.facade';
+import { BaseMoviesFacade } from '../../../../store/peliculas/movie.facade';
 
 // Api
-import { Pelicula } from '../../../../models/Pelicula.model';
+import { Movie } from '../../../../models/Movie.model';
 
 @Component({
   selector: 'app-pelicula-item',
   templateUrl: './pelicula-item.component.html',
 })
 export class PeliculaItemComponent implements OnInit, OnDestroy {
-  @Input() itemPelicula: Pelicula;
-  constructor(public peliculasFacade: BasePeliculasFacade) {}
+  @Input() itemPelicula: Movie;
+  constructor(public peliculasFacade: BaseMoviesFacade) {}
 
   ngOnInit(): void {}
 
   ngOnDestroy(): void {}
 
-  editElement(selectedIitem: Pelicula): void {
-    this.peliculasFacade.updateCurrentPelicula(selectedIitem);
+  editElement(selectedIitem: Movie): void {
+    this.peliculasFacade.updateCurrentMovie(selectedIitem);
   }
 
-  deleteElement(selectedIitem: Pelicula): void {
-    this.peliculasFacade.deletePelicula(selectedIitem);
+  deleteElement(selectedIitem: Movie): void {
+    this.peliculasFacade.deleteMovie(selectedIitem);
   }
 }
