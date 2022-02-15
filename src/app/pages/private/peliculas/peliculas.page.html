@@ -6,7 +6,11 @@
     <ion-title>Peliculas</ion-title>
   </ion-toolbar>
 </ion-header>
-
+<ng-template #noResultsFound>
+  <ion-card>
+    <ion-label>Sin contenido</ion-label>
+  </ion-card>
+</ng-template>
 <ion-content
   *ngIf="peliculasFacade.peliculaList$ | async as peliculas; else noResultsFound"
 >
@@ -16,11 +20,8 @@
     </ion-item>
   </ion-list>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button>
+    <ion-fab-button (click)="addNewMovie()">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 </ion-content>
-<ng-template #noResultsFound>
-  <ion-content> <ion-label>Sin contenido</ion-label> </ion-content>
-</ng-template>
