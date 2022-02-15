@@ -1,9 +1,60 @@
-<ion-header>
+<ion-header translucent>
   <ion-toolbar>
-    <ion-title>pelicula-details</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="peliculas"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalle</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <form [formGroup]="peliculaForm">
+    <ion-item>
+      <ion-label>Título</ion-label>
+      <ion-input type="text" formControlName="title" name="Título"></ion-input>
+    </ion-item>
 
+    <ion-item>
+      <ion-label>Fecha de estreno</ion-label>
+      <ion-input
+        type="text"
+        formControlName="year"
+        name="Fecha de estreno"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Duración</ion-label>
+      <ion-input formControlName="duration" name="Duración"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Rating</ion-label>
+      <ion-input formControlName="imdbRating" name="Rating"></ion-input>
+    </ion-item>
+
+    <!-- Action buttons  -->
+    <ion-card-content>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button
+            color="secondary"
+            type="submit"
+            (click)="navigateToHome()"
+          >
+            Cancelar
+          </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+          <ion-button
+            color="success"
+            type="submit"
+            [disabled]="!peliculaForm.valid"
+            (click)="guardar()"
+            >Guardar
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-card-content>
+  </form>
 </ion-content>

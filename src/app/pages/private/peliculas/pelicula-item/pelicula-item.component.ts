@@ -30,7 +30,7 @@ export class PeliculaItemComponent implements OnInit, OnDestroy {
       queryParams: { order: 'popular' },
     }); */
     this.navCtrl.navigateForward('pelicula-details', {
-      queryParams: { order: 'popular' },
+      queryParams: { selectedIitem },
     });
   }
 

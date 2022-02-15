@@ -17,6 +17,11 @@ export const getSharedFormState = createSelector(
   (state) => state.sharedFormState
 );
 
+export const getRouteNavigationDataState = createSelector(
+  getSharedModuleState,
+  (state) => state.appRouterReducer
+);
+
 export const getLoading = createSelector(
   getSharedFormState,
   (state) => state.loading
